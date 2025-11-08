@@ -17,11 +17,17 @@ export const Contact = () => {
             <div className="contact-info">
               <h2>Contact</h2>
               <div className="contact-details">
-                <div className="contact-detail-item">
-                  <div className="detail-label">Email</div>
-                  <a href="mailto:Geickstedt@gmail.com">Geickstedt@gmail.com</a>
-                </div>
                 <div className="social-links">
+                  <div className="contact-detail-item">
+                    <div className="detail-label">Email</div>
+                    <a
+                      href="mailto:&#71;&#101;&#105;&#99;&#107;&#115;&#116;&#101;&#100;&#116;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Geickstedt@gmail.com
+                    </a>
+                  </div>
                   <div className="contact-detail-item">
                     <div className="detail-label">Instagram</div>
                     <a
