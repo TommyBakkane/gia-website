@@ -1,3 +1,4 @@
+import { PasswordGate } from "@/components/auth/PasswordGate";
 import { Contact } from "@/components/contact/Contact";
 import { Hero } from "@/components/hero/Hero";
 import { Info } from "@/components/info/Info";
@@ -6,12 +7,14 @@ import { Shows } from "@/components/shows/Shows";
 
 export default function Home() {
   return (
-    <div className="home">
-      <Hero />
-      <Info />
-      <Releases />
-      <Shows />
-      <Contact />
-    </div>
+    <PasswordGate>
+      <div className="home">
+        <Hero />
+        <Info />
+        <Releases />
+        <Shows />
+        <Contact />
+      </div>
+    </PasswordGate>
   );
 }
