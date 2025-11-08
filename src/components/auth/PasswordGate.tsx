@@ -54,8 +54,6 @@ export const PasswordGate = ({ children }: PasswordGateProps) => {
       {children}
       <div className="password-gate">
         <div className="password-gate-card">
-          <h2>Members Only</h2>
-          <p>Enter the password to access the site.</p>
           <form className="password-gate-form" onSubmit={handleSubmit}>
             <input
               type="password"
@@ -75,10 +73,6 @@ export const PasswordGate = ({ children }: PasswordGateProps) => {
               <span className="password-gate-error">{error}</span>
             ) : null}
           </form>
-          <div className="password-gate-footer">
-            Password protection is client-side only. Reset the password if it
-            leaks.
-          </div>
         </div>
       </div>
     </>
