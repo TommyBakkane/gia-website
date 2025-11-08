@@ -7,6 +7,8 @@ type PasswordGateProps = {
   children: React.ReactNode;
 };
 
+const STORAGE_KEY = "gia:isAuthenticated";
+
 export const PasswordGate = ({ children }: PasswordGateProps) => {
   const requiredPassword = useMemo(
     () => process.env.NEXT_PUBLIC_SITE_PASSWORD ?? "",
