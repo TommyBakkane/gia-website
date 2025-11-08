@@ -18,13 +18,14 @@ export const Hero = () => {
           </div>
         </div>
       </div>
-
+      {/*
       <div className="hero-footer">
         <div className="scroll-indicator">
           <span>Scroll to explore</span>
           <div className="scroll-arrow">↓</div>
         </div>
       </div>
+       */}
     </section>
   );
 };
