@@ -45,22 +45,7 @@ export const Contact = () => {
                 </div>
               </div>
             </div>
-            <form
-              className="contact-form"
-              action="/contact-success"
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-            >
-              <input type="hidden" name="form-name" value="contact" />
-              <div className="form-hidden">
-                <label htmlFor="bot-field">
-                  Don&apos;t fill this out if you&apos;re human:
-                </label>
-                <input id="bot-field" name="bot-field" />
-              </div>
-
+            <form className="contact-form" name="contact" method="POST">
               <div className="form-row">
                 <div className="form-field">
                   <label htmlFor="name">Name</label>
@@ -103,7 +88,9 @@ export const Contact = () => {
                 />
               </div>
               <div className="form-actions">
-                <button type="submit">Send</button>
+                <button type="submit" disabled>
+                  Send
+                </button>
               </div>
             </form>
           </div>
