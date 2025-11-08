@@ -1,0 +1,145 @@
+.info {
+  height: 100vh;
+  background: var(--background);
+  scroll-snap-align: start;
+}
+
+.info-container {
+  display: flex;
+  height: 100%;
+}
+
+.info-section {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.info-header {
+  margin-bottom: var(--xl);
+}
+
+.image-container {
+  max-width: 180px;
+  padding-left: var(--m);
+  padding-top: var(--m);
+}
+
+.info-logo {
+  width: 100%;
+  height: auto;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1.4;
+  transform: rotate(180deg);
+}
+
+/* About Section */
+.about-section {
+  border-top: 2px solid var(--primary);
+  padding: var(--l);
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--m);
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+/* Image Section */
+.info-section img {
+  width: 100%;
+
+  object-fit: cover;
+}
+
+.info-section.right img {
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .info {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .info-header {
+    padding-top: var(--m);
+  }
+
+  .info-container {
+    flex-direction: column;
+  }
+
+  .info-section {
+    width: 100%;
+  }
+
+  .info-section.left {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .info-section.right {
+    order: 2;
+    height: 50vh;
+    min-height: 400px;
+  }
+
+  .info-top {
+    align-items: flex-start;
+    gap: var(--m);
+  }
+
+  .image-container {
+    max-width: 120px;
+    padding-left: var(--xs);
+    padding-top: var(--xs);
+  }
+
+  .vertical-text {
+    font-size: 1rem;
+  }
+
+  .about-section {
+    margin-top: var(--l);
+    padding: var(--m) var(--xs);
+  }
+
+  .about-section h2 {
+    font-size: 2rem;
+  }
+
+  .about-section p {
+    font-size: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: var(--m);
+  }
+}
