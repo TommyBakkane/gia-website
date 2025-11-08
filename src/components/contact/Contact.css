@@ -100,6 +100,13 @@
   gap: 1.5rem;
 }
 
+.form-hidden {
+  position: absolute;
+  left: -10000px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -153,12 +160,34 @@
   margin-top: 0.5rem;
 }
 
+.form-actions button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.form-actions button:active {
+  transform: translateY(0);
+  opacity: 0.8;
+}
+
+.form-actions button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
 .form-status {
   color: #2e7d32;
   background: rgba(76, 175, 80, 0.15);
   border: 1px solid rgba(76, 175, 80, 0.3);
   padding: 1rem;
   text-align: center;
+}
+
+.form-status.error {
+  color: #b3261e;
+  background: rgba(229, 57, 53, 0.15);
+  border-color: rgba(229, 57, 53, 0.3);
 }
 
 /* Responsive */

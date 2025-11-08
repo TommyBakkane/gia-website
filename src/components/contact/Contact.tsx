@@ -1,12 +1,46 @@
 "use client";
 import "./Contact.css";
-import { useState } from "react";
 import Image from "next/image";
+import { FormEvent, useState } from "react";
+
+type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export const Contact = () => {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">(
-    "idle",
-  );
+  const [status, setStatus] = useState<FormStatus>("idle");
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (status === "submitting") return;
+
+    setStatus("submitting");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    formData.append("form-name", "contact");
+
+    const payload = new URLSearchParams();
+    formData.forEach((value, key) => {
+      payload.append(key, value.toString());
+    });
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: payload.toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Form submission failed: ${response.statusText}`);
+      }
+
+      setStatus("success");
+      form.reset();
+    } catch (error) {
+      console.error("Netlify form submission error", error);
+      setStatus("error");
+    }
+  };
 
   return (
     <section className="contact" id="contact">
@@ -21,14 +55,16 @@ export const Contact = () => {
           />
           <div className="image-overlay">
             <div className="contact-info">
-              <h2>Let&apos;s Connect</h2>
+              <h2>Contact</h2>
               <div className="contact-details">
+                {/*
                 <div className="contact-detail-item">
                   <div className="detail-label">Email</div>
                   <a href="mailto:Geickstedt@gmail.com">
                     Geickstedt(at)gmail.com
                   </a>
                 </div>
+                 */}
                 <div className="social-links">
                   <div className="contact-detail-item">
                     <div className="detail-label">Instagram</div>
@@ -55,15 +91,20 @@ export const Contact = () => {
             </div>
             <form
               className="contact-form"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setStatus("submitting");
-                setTimeout(() => {
-                  setStatus("success");
-                  (e.target as HTMLFormElement).reset();
-                }, 800);
-              }}
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
             >
+              <input type="hidden" name="form-name" value="contact" />
+              <div className="form-hidden">
+                <label htmlFor="bot-field">
+                  Don&apos;t fill this out if you&apos;re human:
+                </label>
+                <input id="bot-field" name="bot-field" />
+              </div>
+
               <div className="form-row">
                 <div className="form-field">
                   <label htmlFor="name">Name</label>
@@ -106,15 +147,20 @@ export const Contact = () => {
                 />
               </div>
               <div className="form-actions">
-                <button>
+                <button type="submit" disabled={status === "submitting"}>
                   {status === "submitting" ? "Sending..." : "Send"}
                 </button>
               </div>
-              {status === "success" ? (
+              {status === "success" && (
                 <div className="form-status" role="status" aria-live="polite">
                   Message sent. I&apos;ll get back to you soon.
                 </div>
-              ) : null}
+              )}
+              {status === "error" && (
+                <div className="form-status error" role="alert">
+                  Something went wrong. Please try again.
+                </div>
+              )}
             </form>
           </div>
         </div>
