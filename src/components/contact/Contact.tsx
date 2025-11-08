@@ -60,7 +60,7 @@ export const Contact = () => {
                 {/*
                 <div className="contact-detail-item">
                   <div className="detail-label">Email</div>
-                  <a href="mailto:Geickstedt@gmail.com">
+                  <a href="mailto:.com">
                     Geickstedt(at)gmail.com
                   </a>
                 </div>
