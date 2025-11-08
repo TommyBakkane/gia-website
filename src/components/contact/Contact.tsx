@@ -25,7 +25,7 @@ export const Contact = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Geickstedt@gmail.com
+                      Geickstedt(at)gmail.com
                     </a>
                   </div>
                   <div className="contact-detail-item">
