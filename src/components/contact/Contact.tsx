@@ -51,7 +51,18 @@ export const Contact = () => {
                 </div>
               </div>
             </div>
-            <form className="contact-form" name="contact" method="POST">
+            <form
+              className="contact-form"
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              netlify-honeypot="bot-field"
+            >
+              <input type="hidden" name="form-name" value="contact" />
+              <div className="form-hidden">
+                <label htmlFor="bot-field">Don’t fill this out</label>
+                <input id="bot-field" name="bot-field" type="text" />
+              </div>
               <div className="form-row">
                 <div className="form-field">
                   <label htmlFor="name">Name</label>
