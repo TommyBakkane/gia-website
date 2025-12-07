@@ -12,12 +12,12 @@ export const AboutDJ = () => {
           <div className="about-dj-text">
             <p>
               DJ GIA ignites the room with her fearless, genre-blending
-              style—where sultry South American rhythms meet groovy lounge
+              style-where sultry South American rhythms meet groovy lounge
               textures and irresistibly funky house. Each performance bursts
               with pulse and personality, punctuated by those perfectly timed
               early-2000s throwbacks that send the crowd over the edge. Always
               performing with a bright smile, her greatest mission is to create
-              a confident, electric club atmosphere—one you won&apos;t forget
+              a confident, electric club atmosphere-one you won&apos;t forget
               anytime soon.
             </p>
           </div>

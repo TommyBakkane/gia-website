@@ -15,7 +15,6 @@ export const Releases = () => {
         </div>
         <div className="releases-content">
           <div className="featured-release">
-            <span className="featured-label">Latest Release</span>
             <h2>Roll the Dice</h2>
             <a
               href="https://open.spotify.com/track/3F56KBHXapK14C2CUX3XRG?si=e5e3465ea8ea49ed"
