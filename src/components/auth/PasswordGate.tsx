@@ -109,7 +109,11 @@ export const PasswordGate = ({ children }: PasswordGateProps) => {
       {status === "locked" ? (
         <div className="password-gate">
           <div className="password-gate-card">
-            <form className="password-gate-form" onSubmit={handleSubmit}>
+            <form
+              className="password-gate-form"
+              onSubmit={handleSubmit}
+              data-netlify="false"
+            >
               <input
                 type="password"
                 autoComplete="current-password"
