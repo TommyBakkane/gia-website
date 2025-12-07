@@ -1,7 +1,69 @@
+"use client";
+
+import { useState, FormEvent } from "react";
 import "./Contact.css";
 import Image from "next/image";
 
 export const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setSubmitStatus({
+        type: "success",
+        message: "Thank you! Your message has been sent.",
+      });
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Something went wrong. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <section className="contact" id="contact">
       <div className="container">
@@ -51,18 +113,16 @@ export const Contact = () => {
                 </div>
               </div>
             </div>
-            <form
-              className="contact-form"
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-            >
-              <input type="hidden" name="form-name" value="contact" />
-              <div className="form-hidden">
-                <label htmlFor="bot-field">Don’t fill this out</label>
-                <input id="bot-field" name="bot-field" type="text" />
-              </div>
+            <form className="contact-form" onSubmit={handleSubmit}>
+              {submitStatus.type && (
+                <div
+                  className={`form-status ${
+                    submitStatus.type === "success" ? "success" : "error"
+                  }`}
+                >
+                  {submitStatus.message}
+                </div>
+              )}
               <div className="form-row">
                 <div className="form-field">
                   <label htmlFor="name">Name</label>
@@ -70,6 +130,8 @@ export const Contact = () => {
                     id="name"
                     type="text"
                     name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="Your name"
                     required
                   />
@@ -80,6 +142,8 @@ export const Contact = () => {
                     id="email"
                     type="email"
                     name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="your@email.com"
                     required
                   />
@@ -91,6 +155,8 @@ export const Contact = () => {
                   id="subject"
                   type="text"
                   name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
                   placeholder="Booking / Collab / Press"
                 />
               </div>
@@ -99,14 +165,16 @@ export const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Tell me about your event or project"
                   rows={6}
                   required
                 />
               </div>
               <div className="form-actions">
-                <button type="submit" disabled>
-                  Send
+                <button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send"}
                 </button>
               </div>
             </form>

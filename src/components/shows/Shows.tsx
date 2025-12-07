@@ -20,12 +20,18 @@ export const Shows = () => {
     },
     {
       id: "2",
+      date: new Date("2025-02-12"),
+      venue: "Lydverker Scene",
+      location: "Sommero",
+    },
+    {
+      id: "3",
       date: new Date("2025-04-11"),
       venue: "Pyramiden SALT",
       location: "Oslo",
     },
     {
-      id: "3",
+      id: "4",
       date: new Date("2025-05-23"),
       venue: "Vaktbua",
       location: "Kristiansand",
@@ -45,6 +51,14 @@ export const Shows = () => {
   return (
     <section className="shows" id="shows">
       <div className="shows-container">
+        <div className="shows-image-section">
+          <img
+            src="/white3.jpg"
+            alt="Live performance"
+            className="shows-background-image"
+          />
+          <div className="image-overlay-gradient"></div>
+        </div>
         <div className="shows-content">
           {featuredShow && (
             <div className="featured-show">
@@ -115,15 +129,6 @@ export const Shows = () => {
               ),
             )}
           </div>
-        </div>
-
-        <div className="shows-image-section">
-          <img
-            src="/white3.jpg"
-            alt="Live performance"
-            className="shows-background-image"
-          />
-          <div className="image-overlay-gradient"></div>
         </div>
       </div>
     </section>

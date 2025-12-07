@@ -82,14 +82,13 @@
   display: flex;
   flex-direction: column;
   gap: var(--s);
-  padding: var(--m);
 }
 
 .release-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--m) 0;
+  padding: var(--m);
   text-decoration: none;
   color: var(--dark);
   transition: all 0.3s ease;
