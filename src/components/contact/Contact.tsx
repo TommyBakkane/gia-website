@@ -113,7 +113,11 @@ export const Contact = () => {
                 </div>
               </div>
             </div>
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <form
+              className="contact-form"
+              onSubmit={handleSubmit}
+              data-netlify="false"
+            >
               {submitStatus.type && (
                 <div
                   className={`form-status ${
