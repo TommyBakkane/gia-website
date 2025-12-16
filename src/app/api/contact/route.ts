@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
       from:
         process.env.MAILGUN_FROM_EMAIL ||
         `Contact Form <noreply@${process.env.MAILGUN_DOMAIN}>`,
-      to: ["Geickstedt@gmail.com"],
+      to: ["tommy.ba95@gmail.com"],
       subject: subject || `Contact Form: ${name}`,
       html: `
           <h2>New Contact Form Submission</h2>
