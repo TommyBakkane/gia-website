@@ -264,7 +264,6 @@
   .shows-image-section {
     height: 50vh;
     min-height: 400px;
-    order: -1;
   }
 
   .shows-header h1 {

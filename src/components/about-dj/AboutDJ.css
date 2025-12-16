@@ -57,7 +57,7 @@
   }
 
   .about-dj-container {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .about-dj-image-section,

@@ -60,7 +60,7 @@ export const Shows = () => {
       <div className="shows-container">
         <div className="shows-content">
           <div className="shows-grid-header">
-            <h2>Upcoming Shows</h2>
+            <h2>Upcoming Concerts</h2>
           </div>
 
           <div className="shows-gigs-section">
