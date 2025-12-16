@@ -28,7 +28,7 @@ export const Info = () => {
               emotional honesty. With roots in jazz and a sound merging
               electronic textures with organic warmth, she explores themes of
               power, love, and identity through a sharp, feminist
-              lens—delivering songs that move both body and mind.
+              lens-delivering songs that move both body and mind.
             </p>
           </div>
         </div>

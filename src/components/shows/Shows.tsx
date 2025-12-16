@@ -22,7 +22,7 @@ export const Shows = () => {
       id: "2",
       date: new Date("2025-02-12"),
       venue: "Lydverker Scene",
-      location: "Sommero",
+      location: "Oslo",
     },
     {
       id: "3",
@@ -35,6 +35,12 @@ export const Shows = () => {
       date: new Date("2025-05-23"),
       venue: "Vaktbua",
       location: "Kristiansand",
+    },
+    {
+      id: "5",
+      date: new Date("2025-05-22"),
+      venue: "PLAY",
+      location: "Risør",
     },
   ];
 
@@ -60,74 +66,80 @@ export const Shows = () => {
           <div className="image-overlay-gradient"></div>
         </div>
         <div className="shows-content">
-          {featuredShow && (
-            <div className="featured-show">
-              <div className="show-date">
-                <span className="date-day">
-                  {formatDate(featuredShow.date).day}
-                </span>
-                <span className="date-month">
-                  {formatDate(featuredShow.date).month}
-                </span>
+          <div className="shows-grid-header">
+            <h2>Upcoming Shows</h2>
+          </div>
+
+          <div className="shows-gigs-section">
+            {featuredShow && (
+              <div className="featured-show">
+                <div className="show-date">
+                  <span className="date-day">
+                    {formatDate(featuredShow.date).day}
+                  </span>
+                  <span className="date-month">
+                    {formatDate(featuredShow.date).month}
+                  </span>
+                </div>
+                <div className="show-info">
+                  <h2>{featuredShow.venue}</h2>
+                  <p className="show-location">{featuredShow.location}</p>
+                  {featuredShow.ticketLink && (
+                    <a
+                      href={featuredShow.ticketLink}
+                      className="tickets-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Get Tickets →
+                    </a>
+                  )}
+                </div>
               </div>
-              <div className="show-info">
-                <h2>{featuredShow.venue}</h2>
-                <p className="show-location">{featuredShow.location}</p>
-                {featuredShow.ticketLink && (
+            )}
+
+            <div className="shows-grid">
+              {upcomingShows.map((show) =>
+                show.ticketLink ? (
                   <a
-                    href={featuredShow.ticketLink}
-                    className="tickets-link"
+                    key={show.id}
+                    href={show.ticketLink}
+                    className="show-card"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Get Tickets →
+                    <div className="show-date-small">
+                      <span className="date-day">
+                        {formatDate(show.date).day}
+                      </span>
+                      <span className="date-month">
+                        {formatDate(show.date).month}
+                      </span>
+                    </div>
+                    <div className="show-details">
+                      <h3>{show.venue}</h3>
+                      <p className="venue-location">{show.location}</p>
+                    </div>
+                    <div className="show-link">→</div>
                   </a>
-                )}
-              </div>
+                ) : (
+                  <div key={show.id} className="show-card">
+                    <div className="show-date-small">
+                      <span className="date-day">
+                        {formatDate(show.date).day}
+                      </span>
+                      <span className="date-month">
+                        {formatDate(show.date).month}
+                      </span>
+                    </div>
+                    <div className="show-details">
+                      <h3>{show.venue}</h3>
+                      <p className="venue-location">{show.location}</p>
+                    </div>
+                  </div>
+                ),
+              )}
             </div>
-          )}
-
-          <div className="shows-grid">
-            {upcomingShows.map((show) =>
-              show.ticketLink ? (
-                <a
-                  key={show.id}
-                  href={show.ticketLink}
-                  className="show-card"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div className="show-date-small">
-                    <span className="date-day">
-                      {formatDate(show.date).day}
-                    </span>
-                    <span className="date-month">
-                      {formatDate(show.date).month}
-                    </span>
-                  </div>
-                  <div className="show-details">
-                    <h3>{show.venue}</h3>
-                    <p className="venue-location">{show.location}</p>
-                  </div>
-                  <div className="show-link">→</div>
-                </a>
-              ) : (
-                <div key={show.id} className="show-card">
-                  <div className="show-date-small">
-                    <span className="date-day">
-                      {formatDate(show.date).day}
-                    </span>
-                    <span className="date-month">
-                      {formatDate(show.date).month}
-                    </span>
-                  </div>
-                  <div className="show-details">
-                    <h3>{show.venue}</h3>
-                    <p className="venue-location">{show.location}</p>
-                  </div>
-                </div>
-              ),
-            )}
           </div>
         </div>
       </div>
