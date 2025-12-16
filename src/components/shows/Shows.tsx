@@ -75,7 +75,7 @@ export const Shows = () => {
                   </span>
                 </div>
                 <div className="show-info">
-                  <h2>{featuredShow.venue}</h2>
+                  <h3>{featuredShow.venue}</h3>
                   <p className="show-location">{featuredShow.location}</p>
                   {featuredShow.ticketLink && (
                     <a
@@ -126,7 +126,7 @@ export const Shows = () => {
                       </span>
                     </div>
                     <div className="show-details">
-                      <h3>{show.venue}</h3>
+                      <h5>{show.venue}</h5>
                       <p className="venue-location">{show.location}</p>
                     </div>
                   </div>

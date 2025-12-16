@@ -56,15 +56,7 @@
   padding: var(--l);
 }
 
-.about-section h2 {
-  font-size: 2.5rem;
-  color: var(--text);
-  letter-spacing: 0.05em;
-  margin-bottom: var(--m);
-}
-
 .about-section p {
-  font-size: 1.1rem;
   line-height: 1.8;
   color: var(--text);
   opacity: 0.9;
@@ -132,12 +124,7 @@
     padding: var(--m) var(--xs);
   }
 
-  .about-section h2 {
-    font-size: 2rem;
-  }
-
   .about-section p {
-    font-size: 1rem;
     margin-left: 0;
     margin-right: 0;
     margin-bottom: var(--m);

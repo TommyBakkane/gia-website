@@ -15,7 +15,7 @@ export const Releases = () => {
         </div>
         <div className="releases-content">
           <div className="featured-release">
-            <h2>Roll the Dice</h2>
+            <h3>Roll the Dice</h3>
             <a
               href="https://open.spotify.com/track/3F56KBHXapK14C2CUX3XRG?si=e5e3465ea8ea49ed"
               target="_blank"

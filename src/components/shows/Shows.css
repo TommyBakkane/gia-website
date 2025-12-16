@@ -41,7 +41,6 @@
   pointer-events: none;
 }
 
-/* Header */
 .shows-header {
   display: flex;
   justify-content: space-between;
@@ -49,10 +48,8 @@
 }
 
 .shows-header h1 {
-  font-size: 3.5rem;
   color: var(--text);
   margin: 0;
-  line-height: 1;
 }
 
 .live-badge {
@@ -114,11 +111,9 @@
   gap: var(--xs);
 }
 
-.show-info h2 {
-  font-size: 2rem;
+.show-info h3 {
   color: var(--text);
   margin: 0;
-  line-height: 1.2;
 }
 
 .show-location {
@@ -144,21 +139,15 @@
   width: fit-content;
 }
 
-/* Shows Gigs Section */
 .shows-gigs-section {
   margin-top: auto;
 }
 
-/* Shows Grid Header */
 .shows-grid-header h2 {
-  font-size: 2.75rem;
   color: var(--dark);
-  letter-spacing: 0.05em;
   margin: 0;
-  line-height: 1.1;
 }
 
-/* Shows Grid */
 .shows-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -207,10 +196,7 @@
 }
 
 .show-details h3 {
-  font-size: 1.1rem;
-  color: var(--text);
   margin: 0 0 0.25rem 0;
-  line-height: 1.2;
 }
 
 .venue-location {
@@ -236,6 +222,10 @@
     gap: var(--m);
   }
 
+  .featured-show {
+    margin-bottom: var(--m);
+  }
+
   .show-card {
     padding: var(--m);
   }
@@ -245,6 +235,10 @@
   .shows {
     height: auto;
     min-height: 100vh;
+  }
+
+  .featured-show {
+    margin-bottom: var(--s);
   }
 
   .shows-container {
@@ -266,14 +260,6 @@
     min-height: 400px;
   }
 
-  .shows-header h1 {
-    font-size: 2.5rem;
-  }
-
-  .show-info h2 {
-    font-size: 1.75rem;
-  }
-
   .shows-grid {
     grid-template-columns: 1fr;
     gap: var(--s);
@@ -282,10 +268,6 @@
   .show-card {
     padding: var(--s);
     gap: var(--s);
-  }
-
-  .show-details h3 {
-    font-size: 1.1rem;
   }
 
   .venue-location {
@@ -298,12 +280,9 @@
     padding: var(--m) var(--s);
   }
 
-  .shows-header h1 {
-    font-size: 2rem;
-  }
-
   .featured-show {
     padding: var(--m);
+    margin-bottom: var(--xs);
   }
 
   .show-date {
@@ -311,16 +290,12 @@
     min-width: 70px;
   }
 
-  .show-info h2 {
-    font-size: 1.5rem;
-  }
-
   .shows-grid {
     gap: var(--xs);
   }
 
   .show-card {
-    padding: var(--xs);
+    padding: var(--s);
     gap: var(--xs);
   }
 
