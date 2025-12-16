@@ -1,3 +1,4 @@
+import Image from "next/image";
 import "./Shows.css";
 
 interface Show {
@@ -57,14 +58,6 @@ export const Shows = () => {
   return (
     <section className="shows" id="shows">
       <div className="shows-container">
-        <div className="shows-image-section">
-          <img
-            src="/white3.jpg"
-            alt="Live performance"
-            className="shows-background-image"
-          />
-          <div className="image-overlay-gradient"></div>
-        </div>
         <div className="shows-content">
           <div className="shows-grid-header">
             <h2>Upcoming Shows</h2>
@@ -141,6 +134,17 @@ export const Shows = () => {
               )}
             </div>
           </div>
+        </div>
+        <div className="shows-image-section">
+          <Image
+            src="/white3.jpg"
+            alt="Live performance"
+            className="shows-background-image"
+            fill
+            sizes="50vw"
+            style={{ objectFit: "cover", objectPosition: "center 30%" }}
+          />
+          <div className="image-overlay-gradient"></div>
         </div>
       </div>
     </section>

@@ -5,6 +5,14 @@ export const AboutDJ = () => {
   return (
     <section className="about-dj" id="about-dj">
       <div className="about-dj-container">
+        <div className="about-dj-image-section">
+          <Image
+            src="/dj_image.jpg"
+            alt="GIA DJ"
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </div>
         <div className="about-dj-content">
           <div className="about-dj-header">
             <h2>DJ GIA</h2>
@@ -21,14 +29,6 @@ export const AboutDJ = () => {
               anytime soon.
             </p>
           </div>
-        </div>
-        <div className="about-dj-image-section">
-          <Image
-            src="/dj_image.jpg"
-            alt="GIA DJ"
-            fill
-            style={{ objectFit: "cover" }}
-          />
         </div>
       </div>
     </section>

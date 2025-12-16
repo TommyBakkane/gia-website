@@ -248,7 +248,7 @@
   }
 
   .shows-container {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
   .shows-content,

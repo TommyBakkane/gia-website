@@ -11,8 +11,8 @@ export default function Home() {
       <Hero />
       <Info />
       <Releases />
-      <AboutDJ />
       <Shows />
+      <AboutDJ />
       <Contact />
     </div>
   );
