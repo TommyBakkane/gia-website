@@ -1,6 +1,5 @@
 import "./Hero.css";
 import Image from "next/image";
-import favicon from "@/app/favicon.svg";
 
 export const Hero = () => {
   return (
@@ -9,7 +8,7 @@ export const Hero = () => {
         <div className="hero-content">
           <div className="hero-logo">
             <Image
-              src={favicon}
+              src="/favicon.svg"
               alt="GIA Logo"
               width={400}
               height={400}

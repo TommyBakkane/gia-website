@@ -17,6 +17,14 @@ export const inter = Inter({
 export const metadata: Metadata = {
   title: "GIA",
   description: "GIA - Singer and DJ",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({

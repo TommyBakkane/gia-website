@@ -1,27 +1,11 @@
 .hero {
-  min-height: 100vh;
-  min-height: 100dvh; /* Dynamic viewport height for mobile */
+  min-height: 100dvh;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("/hero_background.jpg") top/cover no-repeat;
   display: flex;
   flex-direction: column;
   scroll-snap-align: start;
   color: var(--background);
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-
-/* On mobile, ensure image goes all the way to the top */
-@media (max-width: 768px) {
-  .hero {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  .hero-container {
-    padding-top: env(safe-area-inset-top, 0px);
-  }
 }
 
 .hero-container {
