@@ -22,7 +22,7 @@ export const Shows = () => {
     {
       id: "2",
       date: new Date("2025-02-12"),
-      venue: "Lydverker Scene",
+      venue: "Lysverker Scene",
       location: "Oslo",
     },
     {
@@ -32,16 +32,16 @@ export const Shows = () => {
       location: "Oslo",
     },
     {
-      id: "4",
-      date: new Date("2025-05-23"),
-      venue: "Vaktbua",
-      location: "Kristiansand",
-    },
-    {
       id: "5",
       date: new Date("2025-05-22"),
       venue: "PLAY",
       location: "Risør",
+    },
+    {
+      id: "4",
+      date: new Date("2025-05-23"),
+      venue: "Vaktbua",
+      location: "Kristiansand",
     },
   ];
 
@@ -60,7 +60,7 @@ export const Shows = () => {
       <div className="shows-container">
         <div className="shows-content">
           <div className="shows-grid-header">
-            <h2>Upcoming Concerts</h2>
+            <h2>Concerts</h2>
           </div>
 
           <div className="shows-gigs-section">
