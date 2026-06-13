@@ -1,59 +1,25 @@
 import Image from "next/image";
+import { client } from "@/sanity/lib/client";
+import { showsQuery, type ShowDoc } from "@/sanity/lib/queries";
 import "./Shows.css";
 
-interface Show {
-  id: string;
-  date: Date;
-  venue: string;
-  location: string;
-  ticketLink?: string;
-  isFeatured?: boolean;
-}
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return {
+    day: date.getDate().toString(),
+    month: date.toLocaleDateString("en-US", { month: "short" }),
+  };
+};
 
-export const Shows = () => {
-  const shows: Show[] = [
-    {
-      id: "1",
-      date: new Date("2025-01-23"),
-      venue: "Becco",
-      location: "Oslo",
-      isFeatured: true,
-    },
-    {
-      id: "2",
-      date: new Date("2025-02-12"),
-      venue: "Lysverker Scene",
-      location: "Oslo",
-    },
-    {
-      id: "3",
-      date: new Date("2025-04-11"),
-      venue: "Pyramiden SALT",
-      location: "Oslo",
-    },
-    {
-      id: "5",
-      date: new Date("2025-05-22"),
-      venue: "PLAY",
-      location: "Risør",
-    },
-    {
-      id: "4",
-      date: new Date("2025-05-23"),
-      venue: "Vaktbua",
-      location: "Kristiansand",
-    },
-  ];
+export const Shows = async () => {
+  const shows = await client.fetch<ShowDoc[]>(
+    showsQuery,
+    {},
+    { next: { revalidate: 60 } },
+  );
 
   const featuredShow = shows.find((show) => show.isFeatured);
   const upcomingShows = shows.filter((show) => !show.isFeatured);
-
-  const formatDate = (date: Date) => {
-    return {
-      day: date.getDate().toString(),
-      month: date.toLocaleDateString("en-US", { month: "short" }),
-    };
-  };
 
   return (
     <section className="shows" id="shows">
@@ -95,7 +61,7 @@ export const Shows = () => {
               {upcomingShows.map((show) =>
                 show.ticketLink ? (
                   <a
-                    key={show.id}
+                    key={show._id}
                     href={show.ticketLink}
                     className="show-card"
                     target="_blank"
@@ -116,7 +82,7 @@ export const Shows = () => {
                     <div className="show-link">→</div>
                   </a>
                 ) : (
-                  <div key={show.id} className="show-card">
+                  <div key={show._id} className="show-card">
                     <div className="show-date-small">
                       <span className="date-day">
                         {formatDate(show.date).day}
