@@ -7,7 +7,7 @@ export const Releases = async () => {
   const releases = await client.fetch<ReleaseDoc[]>(
     releasesQuery,
     {},
-    { next: { revalidate: 60 } },
+    { next: { revalidate: 10 } },
   );
 
   const featured = releases.find((r) => r.isFeatured) ?? releases[0];

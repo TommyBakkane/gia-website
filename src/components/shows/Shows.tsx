@@ -15,7 +15,7 @@ export const Shows = async () => {
   const shows = await client.fetch<ShowDoc[]>(
     showsQuery,
     {},
-    { next: { revalidate: 60 } },
+    { next: { revalidate: 10 } },
   );
 
   const featuredShow = shows.find((show) => show.isFeatured);
