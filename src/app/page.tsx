@@ -1,6 +1,6 @@
 import { AboutDJ } from "@/components/about-dj/AboutDJ";
 import { Contact } from "@/components/contact/Contact";
-import { Hero } from "@/components/hero/Hero";
+import { Countdown } from "@/components/countdown/Countdown";
 import { Info } from "@/components/info/Info";
 import { Releases } from "@/components/releases/Releases";
 import { Shows } from "@/components/shows/Shows";
@@ -8,7 +8,7 @@ import { Shows } from "@/components/shows/Shows";
 export default function Home() {
   return (
     <div className="home">
-      <Hero />
+      <Countdown />
       <Info />
       <Releases />
       <Shows />
